@@ -31,4 +31,4 @@ pickle-email-*.html
 bower.json
 
 #RubyMine personal configuration files
-/idea
+.idea
