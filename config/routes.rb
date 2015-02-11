@@ -1,5 +1,9 @@
 Snaptrivia::Application.routes.draw do
+<<<<<<< HEAD
   get "wheel/wheel"
+=======
+  devise_for :reviewers
+>>>>>>> 977b9e734d944f484f710c2e1374ae7fc0675493
   devise_for :admins
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
