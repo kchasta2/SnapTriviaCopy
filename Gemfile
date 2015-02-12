@@ -32,9 +32,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'bootstrap-sass'
-gem 'bcrypt', '~> 3.1.10'
-gem 'devise'
 
 # Use ActiveModel has_secure_password
 #gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,3 +44,12 @@ gem 'devise'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+################## Gems added for Project Below ########################
+
+gem 'bootstrap-sass'
+gem 'bcrypt', '~> 3.1.10'
+gem 'devise'
+gem 'better_errors'
+gem 'binding_of_caller'
