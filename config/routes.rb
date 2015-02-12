@@ -2,6 +2,7 @@ Snaptrivia::Application.routes.draw do
   get "wheel/wheel"
   get "game/game"
   get "game/rules"
+  get "game/welcome"
   devise_for :reviewers
   devise_for :admins
   devise_for :users
