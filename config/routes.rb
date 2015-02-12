@@ -1,5 +1,7 @@
 Snaptrivia::Application.routes.draw do
-
+  get "wheel/wheel"
+  get "game/game"
+  get "game/rules"
   devise_for :reviewers
   devise_for :admins
   devise_for :users
@@ -7,7 +9,7 @@ Snaptrivia::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'game#game'
+   root 'game#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
