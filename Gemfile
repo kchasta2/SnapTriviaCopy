@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.2.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -51,5 +51,18 @@ end
 gem 'bootstrap-sass'
 gem 'bcrypt', '~> 3.1.10'
 gem 'devise'
+#gem 'activeadmin', github 'activeadmin'
 gem 'better_errors'
 gem 'binding_of_caller'
+
+#Gems for rails_admin
+gem 'builder'
+gem 'font-awesome-rails'
+gem 'haml'
+gem 'jquery-ui-rails'
+gem 'kaminari'
+gem 'nested_form'
+gem 'rack-pjax'
+gem 'remotipart'
+gem 'safe_yaml'
+gem 'rails_admin'

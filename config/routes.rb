@@ -1,4 +1,5 @@
 Snaptrivia::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get "wheel/wheel"
   get "game/game"
   get "game/rules"
