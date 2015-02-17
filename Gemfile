@@ -66,3 +66,6 @@ gem 'rack-pjax'
 gem 'remotipart'
 gem 'safe_yaml'
 gem 'rails_admin'
+
+#Gem for user roles
+gem 'cancan'
