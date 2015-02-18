@@ -13,6 +13,10 @@ Snaptrivia::Application.routes.draw do
   get "game/welcome"
 
 
+  get "surveys/index"
+  get "surveys/new"
+  get "surveys/edit"
+
 
 
   devise_for :reviewers

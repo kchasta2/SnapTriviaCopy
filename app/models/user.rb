@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_surveys
-
   #User roles
   ROLES = %w[user admin reviewer]
   def role?(base_role)
