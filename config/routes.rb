@@ -1,24 +1,9 @@
 Snaptrivia::Application.routes.draw do
-
-  namespace :contests do
-    resources :surveys
-    resources :attempts, :only => [:new, :create]
-  end
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
   get "wheel/wheel"
   get "game/game"
   get "game/rules"
   get "game/welcome"
-
-
-  get "surveys/index"
-  get "surveys/new"
-  get "surveys/edit"
-
-
-
   devise_for :reviewers
   devise_for :admins
   devise_for :users
