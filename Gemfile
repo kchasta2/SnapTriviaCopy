@@ -69,3 +69,7 @@ gem 'rails_admin'
 
 #Gem for user roles
 gem 'cancan'
+
+
+#Gem for game mechanics
+gem 'trivia'

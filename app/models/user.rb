@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_trivia_user
+
   #User roles
   ROLES = %w[user admin reviewer]
   def role?(base_role)
