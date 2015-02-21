@@ -71,5 +71,3 @@ gem 'rails_admin'
 gem 'cancan'
 
 
-#Gem for game mechanics
-gem 'trivia'
