@@ -1,4 +1,7 @@
 Snaptrivia::Application.routes.draw do
+
+  resource :questions
+
   get 'game_home/gameHome'
 
   get 'add_question/addQuestion'
@@ -8,6 +11,7 @@ Snaptrivia::Application.routes.draw do
   get "game/game"
   get "game/rules"
   get "game/welcome"
+
   devise_for :reviewers
   devise_for :admins
   devise_for :users
