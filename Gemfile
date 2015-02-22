@@ -70,4 +70,7 @@ gem 'rails_admin'
 #Gem for user roles
 gem 'cancan'
 
+########Gems for social media login########
 
+#Facebook
+gem 'omniauth-facebook'
