@@ -74,3 +74,6 @@ gem 'cancan'
 
 #Facebook
 gem 'omniauth-facebook'
+
+#Google+
+gem 'omniauth-google-oauth2'

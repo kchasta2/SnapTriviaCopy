@@ -3,6 +3,7 @@
 Devise.setup do |config|
   # Social login
   config.omniauth :facebook, "1586189504958513", "aeae1a2fdeca26c87c0248dd3ae47651"
+  config.omniauth :google_oauth2, "380879732972-9t6gkumpf4d0mgpp9hvvfifh171uve4i.apps.googleusercontent.com", "AiuZ7PoYnN_tU7Pu8YtuMQCr", { }
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
