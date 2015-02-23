@@ -1,3 +1,4 @@
+<%= unless @question.nil? %>
 <p>
   <strong>Question:</strong>
   <%= @question.title %>
@@ -22,3 +23,4 @@
   <strong>Wrong Answer:</strong>
   <%= @question.wrongAns3 %>
 </p>
+<%= end %>

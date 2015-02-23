@@ -1,8 +1,15 @@
 class QuestionsController < ApplicationController
 
+  def index
+    @questions = Question.all
+  end
 
   def show
     @question = Question.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @question}
+    end
   end
 
   def new
@@ -14,6 +21,13 @@ class QuestionsController < ApplicationController
 
     @question.save
     redirect_to @question
+  end
+
+
+  def ask_question
+    @questions = Question.scoped.select(:id);nil
+    @question = Question.find( @questions.first( Random.rand( @questions.length)).last)
+    redirect_to questions_ask_question_url
   end
 
   private def question_params
