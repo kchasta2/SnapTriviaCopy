@@ -1,15 +1,17 @@
+<body>
+
 <h1>New Question</h1>
 
 <%= form_for :question, url: questions_path do |f| %>
     <p>
-      <%= f.label :question %><br>
+      <%= f.label :Question %><br>
       <%= f.text_field :text %>
     </p>
 
     <h2>Answers:</h2>
 
     <p>
-      <%= f.label :Correct %><br>
+      <%= f.label :Correct%><br>
       <%= f.text_area :text %>
     </p>
 
@@ -31,4 +33,5 @@
     <p>
       <%= f.submit %>
     </p>
+    </body>
 <% end %>
