@@ -17,6 +17,7 @@
 
 <p class="navbar-text pull-right">
   <% if user_signed_in? %>
+      <%= image_tag current_user.image %>
       <% if current_user.name.nil? %>
           Logged in as <strong><%= current_user.email %></strong>.
           <% else %>
