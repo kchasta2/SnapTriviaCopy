@@ -1,12 +1,5 @@
 class User < ActiveRecord::Base
 
-
-  #User roles
-  ROLES = %w[user admin reviewer]
-  def role?(base_role)
-    ROLES.index(base_role.to_s) <= ROLES.index(role)
-  end
-
   # Social media login
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
