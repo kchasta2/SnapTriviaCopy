@@ -1,15 +1,24 @@
 class QuestionsController < ApplicationController
 
+
   def index
     @questions = Question.all
   end
 
   def show
+    ask_question
     @question = Question.find(params[:id])
     respond_to do |format|
       format.html
       format.xml {render :xml => @question}
+
     end
+  end
+
+  def ask_question
+    offset = rand(Question.count)
+    rand_question = Question.offset(offset).first
+    @question = rand_question
   end
 
   def new
@@ -24,13 +33,8 @@ class QuestionsController < ApplicationController
   end
 
 
-  def ask_question
-    @questions = Question.scoped.select(:id);nil
-    @question = Question.find( @questions.first( Random.rand( @questions.length)).last)
-    redirect_to questions_ask_question_url
-  end
 
   private def question_params
-            params.require(:question).permit(:question, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3)
+            params.require(:question).permit(:title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3)
   end
 end

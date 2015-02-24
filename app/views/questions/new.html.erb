@@ -5,29 +5,29 @@
 <%= form_for :question, url: questions_path do |f| %>
     <p>
       <%= f.label :Question %><br>
-      <%= f.text_field :text %>
+      <%= f.text_area :title %>
     </p>
 
     <h2>Answers:</h2>
 
     <p>
       <%= f.label :Correct%><br>
-      <%= f.text_area :text %>
+      <%= f.text_area :rightAns %>
     </p>
 
     <p>
       <%= f.label :InCorrect %><br>
-      <%= f.text_area :text %>
+      <%= f.text_area :wrongAns1 %>
     </p>
 
     <p>
       <%= f.label :InCorrect %><br>
-      <%= f.text_area :text %>
+      <%= f.text_area :wrongAns2 %>
     </p>
 
     <p>
       <%= f.label :InCorrect %><br>
-      <%= f.text_area :text %>
+      <%= f.text_area :wrongAns3 %>
     </p>
 
     <p>

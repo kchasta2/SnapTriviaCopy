@@ -4,7 +4,7 @@
 
 <script>
 var colors = ["#00CC00", "#0000FF", "#009999", "#FF7400", "#FFFF00", "#FF0000", "#ffffff"];
-var restaraunts = ["Art", "Geography", "History", "Sports", "Entertainment", "Science", "Bonus"];
+var categories = ["Art", "Geography", "History", "Sports", "Entertainment", "Science", "Bonus"];
 
 var startAngle = 0;
 var arc = Math.PI / 3.5;
@@ -51,7 +51,7 @@ ctx.fillStyle = "black";
 ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius,
 250 + Math.sin(angle + arc / 2) * textRadius);
 ctx.rotate(angle + arc / 2 + Math.PI / 2);
-var text = restaraunts[i];
+var text = categories[i];
 ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
 ctx.restore();
 }
@@ -97,7 +97,7 @@ var arcd = arc * 180 / Math.PI;
 var index = Math.floor((360 - degrees % 360) / arcd);
 ctx.save();
 ctx.font = 'bold 30px Helvetica, Arial';
-var text = restaraunts[index]
+var text = categories[index]
 ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
 ctx.restore();
 }
