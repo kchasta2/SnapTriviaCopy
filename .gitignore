@@ -32,3 +32,6 @@ bower.json
 
 #RubyMine personal configuration files
 .idea
+
+#Postgres database file
+/config/database.yml
