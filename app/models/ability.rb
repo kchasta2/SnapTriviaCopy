@@ -3,9 +3,7 @@ class Ability
 
   def initialize(user)
     @user = user || User.new
-    can :access, :rails_admin
-    can :dashboard
-    can :manage, :all
+
     if(@user.admin)
       can :access, :rails_admin
       can :dashboard
