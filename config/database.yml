@@ -29,21 +29,21 @@ development:
   database: capstone_dev
   pool: 5
   timeout: 5000
-  username: KristiMac1
-  password: admin
+  username: bill
+  password:
 
 test:
   adapter: postgresql
   database: capstone_test
   pool: 5
   timeout: 5000
-  username: KristiMac1
-  password: admin
+  username: bill
+  password:
 
 production:
   adapter: postgresql
   database: capstone_prod
   pool: 5
   timeout: 5000
-  username: KristiMac1
-  password: admin
+  username: bill
+  password:

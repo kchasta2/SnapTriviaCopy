@@ -6,8 +6,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @subject = params[:@subjectText]
+    @questions = Question.find(params[:subjects])
     ask_question
-    @question = Question.find(params[:id])
     respond_to do |format|
       format.html
       format.xml {render :xml => @question}
@@ -16,8 +17,8 @@ class QuestionsController < ApplicationController
   end
 
   def ask_question
-    offset = rand(Question.count)
-    rand_question = Question.offset(offset).first
+    offset = rand(@questions.count)
+    rand_question = @questions.offset(offset).first
     @question = rand_question
   end
 
@@ -36,6 +37,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3)
+    params.require(:question).permit(:title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subjects)
   end
 end

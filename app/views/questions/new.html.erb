@@ -2,7 +2,14 @@
 
 <h1>New Question</h1>
 
-<%= form_for :question, url: questions_path do |f| %>
+<h2>Subject</h2>
+
+<%= collection_select(:subject, :id, Subject.all, :id, :name) %>
+<br/>
+
+
+<%= form_for :question, url: questions_path do |f| %><br/>
+
     <p>
       <%= f.label :Question %><br>
       <%= f.text_area :title %>
