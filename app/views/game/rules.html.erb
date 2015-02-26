@@ -1,6 +1,47 @@
-<h1>Game Rules</h1>
-<h3>Test Codeship</h3>
-Testing
+<head>
+  <%= stylesheet_link_tag    "rules", media: "all", "data-turbolinks-track" => true %>
+</head>
+<br>
+<aside>
+  <%= link_to 'WelcomePage', game_welcome_path %> |
+  <%= link_to 'GamePage', game_game_path %>
+</aside>
 
-<%= link_to 'GamePage', game_game_path %> <br>
-<%= link_to 'WelcomePage', game_welcome_path %> <br>
+<h1>Game Rules</h1>
+
+<h3>Objective</h3>
+
+The goal is to collect game pieces from each of the six categories represented on the wheel: Entertainment, Science,
+Art, Geography, History, and Sports.  The first player to obtain all six pieces wins the game.
+
+<h3>How to obtain game pieces</h3>
+
+To obtain a game piece, a player must correctly answer three questions in a row, or land on the Bonus section of the
+wheel.  Once one of these events has occurred, the player will choose between challenging the opponent for one of their
+game pieces, or answering a new question from one of the six categories.  If the player answers correctly, they win
+a game piece representing the category of the bonus question they chose.
+
+<h3>Challenge</h3>
+
+To start a challenge in a Bonus round, both players must have at least one game piece.  The player starting the
+challenge (challenger) will select the game piece they wish to bet.  Next the challenger will choose a game piece
+belonging to the opponent (defender) to compete for.
+<br />
+<br />
+Both players are presented with the same six questions, one from each category.  The player who answers the most
+questions correctly will be the winner of the challenge.
+<br />
+<br />
+If the challenger is victorious, he will get the game piece from the defender, and the defender will lose that piece.
+<br />
+<br />
+If the defender wins, he retains his game piece.  The challenger loses the game piece he bet at the start of the
+challenge.
+<br />
+<br />
+In the case of a tie, the defender will receive a bonus question from a random category.  If he answers correctly, he
+wins the challenge.  If he answers incorrectly, the challenger wins.
+
+<h3>End of the game</h3>
+
+The first player to obtain the six game pieces withs the game.
