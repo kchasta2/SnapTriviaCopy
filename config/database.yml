@@ -29,7 +29,7 @@ development:
   database: capstone_dev
   pool: 5
   timeout: 5000
-  username: bill
+  username:
   password:
 
 test:
@@ -37,7 +37,7 @@ test:
   database: capstone_test
   pool: 5
   timeout: 5000
-  username: bill
+  username:
   password:
 
 production:
@@ -45,5 +45,5 @@ production:
   database: capstone_prod
   pool: 5
   timeout: 5000
-  username: bill
+  username:
   password:

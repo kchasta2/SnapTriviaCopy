@@ -27,6 +27,16 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %><br />
+    </div>
+
+    <div class="field">
+      <%= f.check_box :reviewer %>
+      <%= f.label :request_to_be_reviewer %>
+    </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
