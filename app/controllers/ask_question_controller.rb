@@ -1,7 +1,0 @@
-class AskQuestionController < ApplicationController
-
-
-
-
-
-end
