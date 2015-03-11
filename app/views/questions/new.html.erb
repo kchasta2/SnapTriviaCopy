@@ -4,11 +4,16 @@
 
 <h2>Subject</h2>
 
-<%= collection_select(:subject, :id, Subject.all, :id, :name) %>
+
 <br/>
 
 
 <%= form_for :question, url: questions_path do |f| %><br/>
+
+    <p>
+      <%= f.collection_select(:subject_title, Subject.all, :subject_title, :subject_title ) %>
+    </p>
+
 
     <p>
       <%= f.label :Question %><br>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226034523) do
+ActiveRecord::Schema.define(version: 20150311204756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,15 +34,20 @@ ActiveRecord::Schema.define(version: 20150226034523) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "games", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text     "title"
     t.text     "rightAns"
     t.text     "wrongAns1"
     t.text     "wrongAns2"
     t.text     "wrongAns3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "subject"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "subject_title"
   end
 
   create_table "reviewers", force: :cascade do |t|
@@ -65,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150226034523) do
   add_index "reviewers", ["reset_password_token"], name: "index_reviewers_on_reset_password_token", unique: true, using: :btree
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name"
+    t.string "subject_title"
   end
 
   create_table "users", force: :cascade do |t|

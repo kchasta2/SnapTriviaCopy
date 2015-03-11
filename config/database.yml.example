@@ -24,12 +24,18 @@
 #  pool: 5
 #  timeout: 5000
 
+# Setup for using postgres as database for the application
+
 development:
   adapter: postgresql
   database: capstone_dev
   pool: 5
   timeout: 5000
+<<<<<<< HEAD:config/database.yml
   username: bill
+=======
+  username:
+>>>>>>> 765e31713299b9bbc0035c87a638b6ebc1df5c5b:config/database.yml.example
   password:
 
 test:
@@ -37,7 +43,11 @@ test:
   database: capstone_test
   pool: 5
   timeout: 5000
+<<<<<<< HEAD:config/database.yml
+  username: bill
+=======
   username:
+>>>>>>> 765e31713299b9bbc0035c87a638b6ebc1df5c5b:config/database.yml.example
   password:
 
 production:
@@ -45,5 +55,10 @@ production:
   database: capstone_prod
   pool: 5
   timeout: 5000
+<<<<<<< HEAD:config/database.yml
+  username: bill
+  password:
+=======
   username:
   password:
+>>>>>>> 765e31713299b9bbc0035c87a638b6ebc1df5c5b:config/database.yml.example
