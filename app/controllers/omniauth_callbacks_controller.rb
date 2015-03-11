@@ -10,6 +10,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
+    session[:logged_in_omniauth] = true
   end
 
   def google_oauth2
@@ -23,5 +24,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.google_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
+    session[:logged_in_omniauth] = true
   end
 end
