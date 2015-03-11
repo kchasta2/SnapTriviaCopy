@@ -6,13 +6,11 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @subject = params[:@subjectText]
-    @questions = Question.find(params[:subjects])
-    ask_question
+    @questions = Question.find(params[:id])
+
     respond_to do |format|
       format.html
       format.xml {render :xml => @question}
-
     end
   end
 
@@ -37,6 +35,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subjects)
+    params.require(:question).permit(:title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
   end
 end
