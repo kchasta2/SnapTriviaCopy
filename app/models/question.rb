@@ -4,4 +4,11 @@ class Question < ActiveRecord::Base
   has_one :subject
   accepts_nested_attributes_for :subject
 
+  validates :title, presence: true
+  validates :rightAns, presence: true
+  validates :wrongAns1, presence: true
+  validates :wrongAns2, presence: true
+  validates :wrongAns3, presence: true
+  validates :subject_title, presence: true
+
 end

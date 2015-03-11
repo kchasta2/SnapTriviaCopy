@@ -1,6 +1,7 @@
 class GameController < ApplicationController
-  def new
 
+  def index
+    @users = User.all
   end
 
   def game

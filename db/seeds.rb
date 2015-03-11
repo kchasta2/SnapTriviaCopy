@@ -6,15 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-history = Subject.new(:name => "History")
-history.save
-science = Subject.new(:name => "Science")
-science.save
-art = Subject.new(:name => "Art")
-art.save
-sports = Subject.new(:name => "Sports")
-sports.save
-geography = Subject.new(:name => "Geography")
-geography.save
-entertainment = Subject.new(:name => "Entertainment")
-entertainment.save
+Subject.create!([
+    { id: 1, subject_title: "Art" },
+    { id: 1, subject_title: "Entertainment" },
+    { id: 1, subject_title: "History" },
+    { id: 1, subject_title: "Geography" },
+    { id: 1, subject_title: "Science" },
+    { id: 1, subject_title: "Sports" },
+    { id: 1, subject_title: "Bonus" },
+])
