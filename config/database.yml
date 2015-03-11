@@ -29,7 +29,7 @@ development:
   database: capstone_dev
   pool: 5
   timeout: 5000
-  username: bill
+  username: 
   password:
 
 test:
