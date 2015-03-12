@@ -33,5 +33,38 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  ### configure what is viewable in the dashboard
+
+  config.model 'User' do
+    list do
+      field :id
+      field :name
+      field :email
+      field :admin
+      field :reviewer
+      field :provider
+    end
+  end
+
+  config.model 'Question' do
+    list do
+      field :id
+      field :subject_title do
+        label 'Category'
+      end
+      field :title do
+        label 'Question'
+      end
+    end
+    edit do
+      include_all_fields
+      field :subject_title do
+        label 'Category'
+      end
+      field :title do
+        label 'Question'
+      end
+    end
+  end
 
 end

@@ -23,14 +23,15 @@ class User < ActiveRecord::Base
     user = User.where(:email => data["email"]).first
 
     #Create user if none
-     unless user
-         user = User.create(name: data["name"],
-            email: data["email"],
-           password: Devise.friendly_token[0,20],
-            image: data["image"]
-        )
-     end
-     user
+    unless user
+      user = User.create(name: data["name"],
+                         email: data["email"],
+                         password: Devise.friendly_token[0,20],
+                         image: data["image"],
+                         provider: 'google'
+      )
+    end
+    user
   end
 
   # Include default devise modules. Others available are:
