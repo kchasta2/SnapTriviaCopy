@@ -1,0 +1,42 @@
+<p>
+<div id="myModal" class="modal-body" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 200px;">
+            <span class="sr-only">60% Complete</span>
+          </div>
+        </div>
+
+        <h2>The Subject is <%= @question.subject_title %></h2>
+        <h3><%= @question.title %></h3>
+      </div>
+      <div class="modal-body">
+
+        <div class="quiz" data-toggle="buttons">
+
+          <label class="btn btn-labeled btn-default btn-block">
+            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="1"><%= @question.rightAns %>
+          </label>
+          <label class="btn btn-labeled btn-default btn-block">
+            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="2"><%= @question.wrongAns1 %>
+          </label>
+          <label class="btn btn-labeled btn-default btn-block">
+            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="3"><%= @question.wrongAns2 %>
+          </label>
+          <label class="btn btn-labeled btn-default btn-block">
+            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="3"><%= @question.wrongAns3 %>
+          </label>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <span id="answer"></span>
+        <!-- hide close button, hide when correct choice only! -->
+      </div>
+    </div>
+  </div>
+</div>
+</p>

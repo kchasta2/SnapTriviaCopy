@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    redirect_to @question
+    
   end
 
   def create

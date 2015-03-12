@@ -13,7 +13,7 @@ class Question < ActiveRecord::Base
 
 
   def self.question_by_subject(sub)
-    Question.where("questions.subject_title" => sub)
+    @question = Question.where("questions.subject_title" => sub)
   end
 
 end
