@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     @user = user || User.new
 
+
     if(@user.admin)
       can :access, :rails_admin
       can :dashboard

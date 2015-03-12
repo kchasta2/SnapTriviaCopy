@@ -11,4 +11,9 @@ class Question < ActiveRecord::Base
   validates :wrongAns3, presence: true
   validates :subject_title, presence: true
 
+
+  def self.question_by_subject(sub)
+    Question.where("questions.subject_title" => sub)
+  end
+
 end

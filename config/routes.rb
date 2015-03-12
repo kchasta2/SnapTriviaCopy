@@ -1,10 +1,11 @@
 Snaptrivia::Application.routes.draw do
 
-  resources :questions
+  resources :questions, :subjects
 
+  get 'add_question/show'
   get 'game_home/gameHome'
   get 'questions/new'
-  get 'questions/show'
+  get 'questions/show' => 'questions#show'
 
 
 

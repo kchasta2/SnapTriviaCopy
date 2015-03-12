@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @questions = Question.find(params[:id])
+    @question = Question.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-
+    redirect_to @question
   end
 
   def create
@@ -35,6 +35,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
+    params.require(:question).permit( :title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
   end
 end

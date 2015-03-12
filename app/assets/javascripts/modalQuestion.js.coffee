@@ -2,10 +2,10 @@ $ ->
   loading = $('#loadbar').hide()
   $(document).ajaxStart(->
     loading.show()
-    return
+
   ).ajaxStop ->
     loading.hide()
-    return
+
   $('label.btn').on 'click', ->
     choice = $(this).find('input:radio').val()
     $('#loadbar').show()
@@ -17,9 +17,9 @@ $ ->
 
       ### something else ###
 
-      return
+
     ), 1500
-    return
+
   $ans = 3
 
   $.fn.checking = (ck) ->
@@ -28,4 +28,3 @@ $ ->
     else
       'CORRECT'
 
-  return
