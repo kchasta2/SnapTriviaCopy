@@ -1,6 +1,7 @@
 class GameController < ApplicationController
 
   def index
+  @player1 = :current_user
 
   end
 
