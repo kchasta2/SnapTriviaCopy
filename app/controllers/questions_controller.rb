@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def create
@@ -31,8 +31,7 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 
-
-
+  
   private
   def question_params
     params.require(:question).permit( :title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
