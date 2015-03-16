@@ -16,7 +16,13 @@ class GameController < ApplicationController
   end
 
 
-  def new
 
+  def new
+  @game = Game.new(game_params)
+  end
+
+  private
+  def game_params
+    params.require(:game).permit( :title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
   end
 end
