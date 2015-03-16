@@ -23,6 +23,6 @@ class GameController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit( :title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
+    params.require(:game).permit( )
   end
 end

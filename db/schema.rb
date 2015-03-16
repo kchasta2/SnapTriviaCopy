@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311234524) do
+ActiveRecord::Schema.define(version: 20150316165353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,24 @@ ActiveRecord::Schema.define(version: 20150311234524) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "games", force: :cascade do |t|
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "player1_id"
     t.integer  "player2_id"
-    t.boolean  "player1_turn", default: true, null: false
-    t.boolean  "game_over",    default: true, null: false
+    t.boolean  "player1_turn",         default: true,  null: false
+    t.boolean  "game_over",            default: true,  null: false
+    t.integer  "art_count"
+    t.integer  "entertainment_count"
+    t.integer  "history_count"
+    t.integer  "geography_count"
+    t.integer  "science_count"
+    t.integer  "sports_count"
+    t.boolean  "art_trophy",           default: false, null: false
+    t.boolean  "entertainment_trophy", default: false, null: false
+    t.boolean  "history_trophy",       default: false, null: false
+    t.boolean  "geography_trophy",     default: false, null: false
+    t.boolean  "science_trophy",       default: false, null: false
+    t.boolean  "sports_trophy",        default: false, null: false
   end
 
   create_table "player_stats", force: :cascade do |t|
