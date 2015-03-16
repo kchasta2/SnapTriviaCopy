@@ -1,8 +1,7 @@
 class GameController < ApplicationController
 
   def index
-  @player1 = :current_user
-
+    @games = Game.all
   end
 
   def show
@@ -15,14 +14,17 @@ class GameController < ApplicationController
     end
   end
 
-
+  def create
+    @player1 = :player1
+    @player2 = :player2
+  end
 
   def new
-  @game = Game.new(game_params)
+    @game = Game.new(game_params)
   end
 
   private
   def game_params
-    params.require(:game).permit( )
+    params.require(:game).permit( :player1, :player2)
   end
 end
