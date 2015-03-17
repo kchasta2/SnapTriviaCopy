@@ -7,11 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Subject.create!([
-    { id: 1, subject_title: "Art" },
-    { id: 1, subject_title: "Entertainment" },
-    { id: 1, subject_title: "History" },
-    { id: 1, subject_title: "Geography" },
-    { id: 1, subject_title: "Science" },
-    { id: 1, subject_title: "Sports" },
-    { id: 1, subject_title: "Bonus" },
+    { subject_title: "Art" },
+    { subject_title: "Entertainment" },
+    { subject_title: "History" },
+    { subject_title: "Geography" },
+    { subject_title: "Science" },
+    { subject_title: "Sports" },
+    { subject_title: "Bonus" },
+])
+
+### Creates Users ###
+# Deletes all users in users table
+User.delete_all
+# Creates users in users table
+User.create!([
+   { name:'Admin', email: 'admin@admin.com', password: '12345678', password_confirmation: '12345678', admin: true }
+
 ])
