@@ -2,6 +2,14 @@ class User < ActiveRecord::Base
   has_many :games
   validates :games, :presence => false
 
+  # Set default values not handled in previous migrations
+  after_initialize :defaults
+  def defaults
+    self.admin = false if self.admin.nil?
+    self.reviewer = false if self.reviewer.nil?
+    self.provider ||= 'self'
+  end
+
   # Social media login
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
