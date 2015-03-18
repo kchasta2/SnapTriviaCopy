@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :games
   validates :games, :presence => false
+  has_paper_trail :only => [:request_reviewer]
 
   # Set default values not handled in previous migrations
   after_initialize :defaults
