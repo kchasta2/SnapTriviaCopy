@@ -14,11 +14,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 200px;">
-            <span class="sr-only">60% Complete</span>
-          </div>
+
+        <!--        <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 200px;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+                </div>   -->
+
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 0%;"></div>
         </div>
+
         <h3><span class="label label-warning" id="qid"><%= @question.subject_title %></span>  <%= @question.title %></h3>
       </div>
       <div class="modal-body">
@@ -50,6 +56,24 @@
 </div>
 
 <script>
+
+
+    $(document).ready(function(){
+
+        var progress = setInterval(function() {
+            var $bar = $('.bar');
+
+            if ($bar.width()==400) {
+                clearInterval(progress);
+                $('.progress').removeClass('active');
+            } else {
+                $bar.width($bar.width()+40);
+            }
+            $bar.text($bar.width()/4 + "%");
+        }, 800);
+
+    });
+
     $(function(){
         var loading = $('#loadbar').hide();
         $(document)
@@ -75,9 +99,9 @@
 
         $.fn.checking = function(ck) {
             if (ck != $ans)
-                return 'INCORRECT';
+                Turbolinks.visit('game');
             else
-                return 'CORRECT';
+                Turbolinks.visit('game');
         };
     });
 

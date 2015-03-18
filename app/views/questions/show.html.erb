@@ -1,44 +1,109 @@
-<p>
-<div id="myModal" class="modal-body" tabindex="-1" role="dialog">
+<%
+   question = @question
+   answers = [question.rightAns, question.wrongAns1, question.wrongAns2, question.wrongAns3]
+   answers = answers.shuffle
+   correct_ans_index = answers.index(question.rightAns)
+%>
+<div style="display: none;">
+  <p id="correct_ans"><%= correct_ans_index %></p>
+</div>
+
+
+
+<div class="container-fluid bg-info">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
 
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 200px;">
-              <span class="sr-only">60% Complete</span>
-            </div>
-          </div>
+        <!--        <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 200px;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+                </div>   -->
 
-        <h2>The Subject is <%= @question.subject_title %></h2>
-        <h3><%= @question.title %></h3>
-      </div>
-      <div class="modal-body">
-
-        <div class="quiz" data-toggle="buttons">
-
-          <label class="btn btn-labeled btn-default btn-block">
-            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="1"><%= @question.rightAns %>
-          </label>
-          <label class="btn btn-labeled btn-default btn-block">
-            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="2"><%= @question.wrongAns1 %>
-          </label>
-          <label class="btn btn-labeled btn-default btn-block">
-            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="3"><%= @question.wrongAns2 %>
-          </label>
-          <label class="btn btn-labeled btn-default btn-block">
-            <span class="btn-label"><i class="glyphicon"></i></span><input type="radio" name="q" value="3"><%= @question.wrongAns3 %>
-          </label>
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 0%;"></div>
         </div>
 
-
-
+        <h3><span class="label label-warning" id="qid"><%= @question.subject_title %></span>  <%= @question.title %></h3>
       </div>
-      <div class="modal-footer">
+      <div class="modal-body">
+        <div class="col-xs-3 col-xs-offset-5">
+          <div id="loadbar" style="display: none;">
+            <div class="blockG" id="rotateG_01"></div>
+            <div class="blockG" id="rotateG_02"></div>
+            <div class="blockG" id="rotateG_03"></div>
+            <div class="blockG" id="rotateG_04"></div>
+            <div class="blockG" id="rotateG_05"></div>
+            <div class="blockG" id="rotateG_06"></div>
+            <div class="blockG" id="rotateG_07"></div>
+            <div class="blockG" id="rotateG_08"></div>
+          </div>
+        </div>
+
+        <div class="quiz" id="quiz" data-toggle="buttons">
+          <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="0"><%= answers[0] %></label>
+          <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1"><%= answers[1] %></label>
+          <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2"><%= answers[2] %></label>
+          <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3"><%= answers[3] %></label>
+        </div>
+      </div>
+      <div class="modal-footer text-muted">
         <span id="answer"></span>
-        <!-- hide close button, hide when correct choice only! -->
       </div>
     </div>
   </div>
 </div>
-</p>
+
+<script>
+
+
+    $(document).ready(function(){
+
+        var progress = setInterval(function() {
+            var $bar = $('.bar');
+
+            if ($bar.width()==400) {
+                clearInterval(progress);
+                $('.progress').removeClass('active');
+            } else {
+                $bar.width($bar.width()+40);
+            }
+            $bar.text($bar.width()/4 + "%");
+        }, 800);
+
+    });
+
+    $(function(){
+        var loading = $('#loadbar').hide();
+        $(document)
+                .ajaxStart(function () {
+                    loading.show();
+                }).ajaxStop(function () {
+                    loading.hide();
+                });
+
+        $("label.btn").on('click',function () {
+            var choice = $(this).find('input:radio').val();
+            $('#loadbar').show();
+            $('#quiz').fadeOut();
+            setTimeout(function(){
+                $( "#answer" ).html(  $(this).checking(choice) );
+                $('#quiz').show();
+                $('#loadbar').fadeOut();
+                /* something else */
+            }, 1500);
+        });
+
+        $ans = document.getElementById("correct_ans").innerHTML;
+
+        $.fn.checking = function(ck) {
+            if (ck != $ans)
+                return 'INCORRECT';
+            else
+                return 'CORRECT';
+        };
+    });
+
+
+</script>
