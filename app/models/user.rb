@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :games
+  validates :games, :presence => false
 
   # Social media login
   def self.from_omniauth(auth)

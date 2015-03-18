@@ -17,6 +17,8 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
+  config.included_models = ['User', 'Question']
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -34,6 +36,9 @@ RailsAdmin.config do |config|
   end
 
   ### configure what is viewable in the dashboard
+  config.model 'Game' do
+    associated_collection_cache_all = false
+  end
 
   config.model 'User' do
     list do
