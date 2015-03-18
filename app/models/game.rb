@@ -12,5 +12,9 @@ class Game < ActiveRecord::Base
     errors.add(:player2, "Player 1 and Player 2 must be different users") if player1==player2
   end
 
+  def get_user_game(player_user_id)
+    Game.where('player1_id=? OR player2_id=? AND game_over = false', player_user_id, player_user_id)
+  end
+
 
 end

@@ -1,7 +1,9 @@
 class GameController < ApplicationController
 
   def index
-    @games = Game.all
+    games = Game.all
+    @player = User.find(params[:id])
+    @game_id = games.find(params[:game_id])
   end
 
   def show
