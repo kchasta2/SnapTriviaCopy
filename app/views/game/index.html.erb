@@ -29,7 +29,7 @@
     Active Games
   </a>
   <% @active_games.each do |a| %>
-      <a href="#" class="list-group-item"><%= a.player1.name + "  " + a.player2.name %></a>
+      <a href="#" class="list-group-item"><%= "Player 1: " + a.player1.name + "  Player 2: " + a.player2.name %></a>
       </div>
   <% end %>
 
@@ -38,10 +38,10 @@
 
   <div class="list-group">
     <a href="#" class="list-group-item active">
-      Active Games
+      Completed Games
     </a>
     <% @finished_games.each do |f| %>
-        <a href="#" class="list-group-item"><%= f.player1.name + "  " + f.player2.name %></a>
+        <a href="#" class="list-group-item"><%= "Player 1: " + f.player1.name + "  Player 2: " + f.player2.name %></a>
         </div>
         </body>
     <% end %>
