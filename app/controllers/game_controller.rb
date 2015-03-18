@@ -1,7 +1,6 @@
 class GameController < ApplicationController
 
   def index
-
       end
 
       def show
@@ -25,7 +24,7 @@ class GameController < ApplicationController
 
       private
       def game_params
-        # params.require(:game).permit(:player1, :player2, :game_over, :approved)
+        params.require(:game).permit(current_user.id, @player2.id, game_over: false, approved: true, player1_turn: true)
       end
   end
 
