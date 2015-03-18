@@ -1,15 +1,33 @@
-<h1>Game Page</h1>
 
 <html>
 <head>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="nav nav-pills nav-justified thumbnail">
+          <li class="active"><a href="#">
+            <h4 class="list-group-item-heading">User 1 Id</h4>
+            <p class="list-group-item-text">Second description</p>
+          </a></li>
+          <li class="disabled"><a href="#">
+            <h4 class="list-group-item-heading">User 2 ID</h4>
+            <p class="list-group-item-text">Third description</p>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
     <meta charset="UTF-8" />
     <title>SnapTrivia</title>
     <style type="text/css">
           body {
-              background: cornsilk;
+              background: lightblue;
           }
-          #wheelCanvas {
-                 }
+            #wheelcanvas{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
       </style>
 
     <script></script>
@@ -19,7 +37,7 @@
 <body>
 
 
-<canvas id="wheelcanvas" width="500" height="500" onclick="spin();"></canvas>
+<canvas id="wheelcanvas" width="500" height="500"  onclick="spin();"></canvas>
 
 <script type="text/javascript">
     var colors = ["#00CC00", "#0000FF", "#009999", "#FF7400", "#FFFF00", "#FF0000", "#ffffff"];
