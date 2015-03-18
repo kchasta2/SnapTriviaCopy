@@ -1,0 +1,47 @@
+<% @current_user = current_user %>
+
+<body>
+<h1><%= current_user.name %></h1>
+
+<div style="display: none;">
+  <p id="active_games"><%= @active_games %></p>
+  <p id="games_history"><%= @finished_games %></p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="nav nav-pills nav-justified thumbnail">
+        <li class="active"><a href="#">
+          <h4 class="list-group-item-heading"><%= current_user.name %></h4>
+
+          <p class="list-group-item-text">Second description</p>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<% @active_games = Game.get_user_games_active(@current_user.id) %>
+
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    Active Games
+  </a>
+  <% @active_games.each do |a| %>
+      <a href="#" class="list-group-item"><%= a.player1.name + "  " + a.player2.name %></a>
+      </div>
+  <% end %>
+
+
+  <%  @finished_games = Game.get_user_games_active(@current_user.id) %>
+
+  <div class="list-group">
+    <a href="#" class="list-group-item active">
+      Active Games
+    </a>
+    <% @finished_games.each do |f| %>
+        <a href="#" class="list-group-item"><%= f.player1.name + "  " + f.player2.name %></a>
+        </div>
+        </body>
+    <% end %>

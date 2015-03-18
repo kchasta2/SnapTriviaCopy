@@ -8,12 +8,16 @@ class Game < ActiveRecord::Base
 
 
 
-  def verify_different_players
+  def self.verify_different_players
     errors.add(:player2, "Player 1 and Player 2 must be different users") if player1==player2
   end
 
-  def get_user_game(player_user_id)
-    Game.where('player1_id=? OR player2_id=? AND game_over = false', player_user_id, player_user_id)
+  def self.get_user_games_active(user_id)
+    Game.where('player1_id=? or player2_id=? and game_over = false', user_id, user_id)
+  end
+
+  def self.get_user_game_history(user_id)
+    Game.where('player1_id=? or player2_id=? and game_over = true', user_id, user_id)
   end
 
 
