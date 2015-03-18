@@ -72,6 +72,7 @@ gem 'rack-pjax'
 gem 'remotipart'
 gem 'safe_yaml'
 gem 'rails_admin'
+gem 'paper_trail', '~> 4.0.0.beta'
 
 #Gem for user roles
 gem 'cancan'
