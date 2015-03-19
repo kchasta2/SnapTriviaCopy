@@ -22,14 +22,16 @@ class MessagesController < ApplicationController
   end
 
   def new
+    @user_options = User.all.map{|u| [ u.name, u.id ] }
     @message = Message.new
   end
 
   def create
     @message = Message.new(message_params)
     @message.sender_id = current_user.id
+    @message.sender_name = current_user.name
+    @message.recipient_name = User.find(@message.recipient_id).name
     @message.save
-
     respond_to do |format|
       if @message.save
         format.html { redirect_to :action => :index, notice: 'Message has been sent.' }
