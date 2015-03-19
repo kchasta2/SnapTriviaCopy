@@ -6,6 +6,7 @@ Snaptrivia::Application.routes.draw do
   get 'game_home/gameHome'
   get 'questions/new'
   get 'questions/show' => 'questions#show'
+  get 'game/ask_question'
   get 'game/show'
   get 'game/index' => 'game#index'
 
