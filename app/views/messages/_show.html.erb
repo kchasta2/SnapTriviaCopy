@@ -17,7 +17,7 @@
     </tr>
   </table>
   <p><%= @message.body %></p>
-  <% if current_user.admin %>
+  <% if current_user.admin && @message.sender_id != 0 && @message.subject != 'New Question' %>
       <%= link_to 'View user in dashboard', rails_admin.show_path(model_name: 'user', id: @message.sender_id) %><br/>
   <%end%>
   <% if current_user.reviewer && @message.sender_id == 0 %>
