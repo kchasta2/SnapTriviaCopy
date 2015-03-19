@@ -21,6 +21,6 @@ Subject.create!([
 User.delete_all
 # Creates users in users table
 User.create!([
-   { name:'Admin', email: 'admin@admin.com', password: '12345678', password_confirmation: '12345678', admin: true }
+   { name:'Admin', email: 'admin@admin.com', password: '12345678', password_confirmation: '12345678', admin: true, reviewer: true }
 
 ])

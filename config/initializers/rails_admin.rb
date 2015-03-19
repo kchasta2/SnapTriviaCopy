@@ -54,6 +54,9 @@ RailsAdmin.config do |config|
       field :reviewer
       field :provider
     end
+    edit do
+      exclude_fields :password, :password_confirmation
+    end
   end
 
   config.model 'Question' do
