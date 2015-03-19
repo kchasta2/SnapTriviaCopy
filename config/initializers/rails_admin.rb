@@ -41,6 +41,10 @@ RailsAdmin.config do |config|
     associated_collection_cache_all = false
   end
 
+  config.model 'Message' do
+    associated_collection_cache_all = false
+  end
+
   config.model 'User' do
     list do
       field :id
