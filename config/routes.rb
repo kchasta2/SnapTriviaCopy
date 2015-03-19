@@ -9,7 +9,7 @@ Snaptrivia::Application.routes.draw do
   get 'game/ask_question'
   get 'game/show'
   get 'game/index'
-  get 'game/game' => 'game#new'
+  get 'game/game'
 
 
 

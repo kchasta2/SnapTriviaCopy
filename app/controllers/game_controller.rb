@@ -26,7 +26,7 @@ class GameController < ApplicationController
     @game = Game.new(game_params)
     @game.save
 
-    redirect_to 'game/game'
+
   end
 
   def start_random_game
