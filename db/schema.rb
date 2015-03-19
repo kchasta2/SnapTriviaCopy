@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(version: 20150319210355) do
     t.boolean  "geography_trophy_p1",     default: false, null: false
     t.boolean  "science_trophy_p1",       default: false, null: false
     t.boolean  "sports_trophy_p1",        default: false, null: false
-    t.boolean  "art_trophy_p2"            default: false, null: false
-    t.boolean  "entertainment_trophy_p2"  default: false, null: false
-    t.boolean  "history_trophy_p2"        default: false, null: false
-    t.boolean  "geography_trophy_p2"      default: false, null: false
-    t.boolean  "science_trophy_p2"        default: false, null: false
-    t.boolean  "sports_trophy_p2"         default: false, null: false
+    t.boolean  "art_trophy_p2"
+    t.boolean  "entertainment_trophy_p2"
+    t.boolean  "history_trophy_p2"
+    t.boolean  "geography_trophy_p2"
+    t.boolean  "science_trophy_p2"
+    t.boolean  "sports_trophy_p2"
   end
 
   create_table "messages", force: :cascade do |t|
