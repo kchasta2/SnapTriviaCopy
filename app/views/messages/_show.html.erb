@@ -16,7 +16,9 @@
       <td><strong><%= @message.created_at %></strong></td>
     </tr>
   </table>
-
   <p><%= @message.body %></p>
+  <% if current_user.admin %>
+      <%= link_to 'View user in dashboard', rails_admin.show_path(model_name: 'user', id: @message.sender_id) %><br/>
+  <%end%>
   <%= link_to 'Back', messages_path %>
 </div>
