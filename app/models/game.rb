@@ -7,7 +7,7 @@ class Game < ActiveRecord::Base
 
   # Verifies that player one and teo are different
   def self.verify_different_players
-    errors.add(:player2, "Player 1 and Player 2 must be different users") if player1==player2
+    errors.add(:player2, "Player 1 and Player 2 must be different users") if :player1_id == :player2_id
   end
 
   # gets active games by user id
