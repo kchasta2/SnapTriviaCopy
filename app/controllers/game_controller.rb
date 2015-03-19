@@ -1,10 +1,11 @@
 class GameController < ApplicationController
 
   def index
+
   end
 
   def show
-
+    @game = Game.find(params[:game_id])
   end
 
   def ask_question
@@ -16,20 +17,17 @@ class GameController < ApplicationController
       format.xml { render :xml => @question }
     end
   end
-
-  def create
-    @player1 = current_user
-    @player2 = :player2
-  end
+  
 
   def new
+    @player2 = User.find(params[:id])
     @game = Game.new(game_params)
     @game.save
   end
 
   private
   def game_params
-     params.require(:game).permit(current_user.id, @player2.id, game_over: false, approved: true, player1_turn: true)
+     params.require(:game).permit(player1_id: current_user.id, player2_id: @player2, game_over: false, approved: true, player1_turn: true)
   end
 end
 
