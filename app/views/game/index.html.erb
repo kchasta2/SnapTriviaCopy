@@ -2,13 +2,16 @@
 
 <body>
 
-
+<!--   sets games id's to the lists       -->
 <div style="display: none;">
   <p id="active_games"><%= @active_games %></p>
 
   <p id="games_history"><%= @finished_games %></p>
 </div>
 
+
+
+<!-- Name tied to ID for current user  -->
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -23,20 +26,25 @@
   </div>
 </div>
 
+
+<!-- Buttons and search -->
 <div class="row">
   <div class="col-lg-7">
     <div class="input-group">
     <p>
+      <!-- Button for play random user not linked yet -->
     <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align"  >Play Random User</button>
+
+      <!-- Button for play search for user not linked yet -->
       <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Search by player name</button>
     </p>
       <input type="text" class="form-control" placeholder="Search By Players Name" >
+      <!-- Need to grac name and apply search -->
       </div>
     </div>
-
   </div>
 
-
+<!-- gets active games for current user and lists onclick not yet set -->
 <% @active_games = Game.get_user_games_active(@current_user.id) %>
 
 <div class="list-group">
@@ -50,12 +58,9 @@
       </a>
       </div>
   <% end %>
-  <div>
-    <% @player_searched = User.where('name = ?',) %>
-    <p></p>
-  </div>
 
 
+<!-- gets finished games for current user onclick not yet set  -->
   <% @finished_games = Game.get_user_games_active(@current_user.id) %>
 
   <div class="list-group">

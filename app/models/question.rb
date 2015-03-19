@@ -12,6 +12,7 @@ class Question < ActiveRecord::Base
   validates :subject_title, presence: true
 
 
+  # Gets question by subject
   def self.question_by_subject(sub)
     @question = Question.where("questions.subject_title" => sub)
   end
