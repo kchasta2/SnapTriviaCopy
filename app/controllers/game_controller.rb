@@ -21,16 +21,22 @@ class GameController < ApplicationController
   end
 
   # Creates new game
-  def new
-    @player2 = User.find(params[:id])
+  def new(user_id)
+    @player2 = User.find(user_id)
     @game = Game.new(game_params)
     @game.save
+
+    redirect_to 'game/game'
+  end
+
+  def start_random_game
+
   end
 
   # checks params for new game MUST UPDATE!!!
   private
   def game_params
-     params.require(:game).permit(player1_id: current_user.id, player2_id: @player2, game_over: false, approved: true, player1_turn: true)
+     params.require(:game).permit(player1_id: current_user.id, player2_id: @player2)
   end
 end
 

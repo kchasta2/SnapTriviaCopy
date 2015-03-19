@@ -1,6 +1,25 @@
 <% @current_user = current_user %>
 
 <body>
+<style type="text/css">
+    body {
+        background: lightblue;
+    }
+
+    #cont-btn {
+        float: right;
+    }
+
+    #new_game_btn {
+        float: right;
+    }
+
+    .list-group-item {
+        height: 55px;
+        text-align: left;
+    }
+
+</style>
 
 <!--   sets games id's to the lists       -->
 <div style="display: none;">
@@ -8,7 +27,6 @@
 
   <p id="games_history"><%= @finished_games %></p>
 </div>
-
 
 
 <!-- Name tied to ID for current user  -->
@@ -31,18 +49,18 @@
 <div class="row">
   <div class="col-lg-7">
     <div class="input-group">
-    <p>
-      <!-- Button for play random user not linked yet -->
-    <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align"  >Play Random User</button>
+      <p>
+        <!-- Button for play random user not linked yet -->
+        <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Play Random User</button>
 
-      <!-- Button for play search for user not linked yet -->
-      <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Search by player name</button>
-    </p>
-      <input type="text" class="form-control" placeholder="Search By Players Name" >
+        <!-- Button for play search for user not linked yet -->
+        <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Search by player name</button>
+      </p>
+      <input type="text" class="form-control" placeholder="Search By Players Name">
       <!-- Need to grac name and apply search -->
-      </div>
     </div>
   </div>
+</div>
 
 <!-- gets active games for current user and lists onclick not yet set -->
 <% @active_games = Game.get_user_games_active(@current_user.id) %>
@@ -52,23 +70,46 @@
   <a href="#" class="list-group-item active">
     <h4>Active Games</h4>
   </a>
+
   <% @active_games.each do |a| %>
-      <a href="#" class="list-group-item"><%= "Player 1: " + a.player1.name + "  Player 2: " + a.player2.name %>
-        <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Play</button>
-      </a>
-      </div>
+
+        <a href="#" class="list-group-item"><%= "Player 1: " + a.player1.name + "  Player 2: " + a.player2.name %>
+          <button type="button" class="btn btn-primary btn" id="cont-btn" aria-label="Center Align">Continue Game
+          </button>
+        </a>
   <% end %>
+</div>
 
 
 <!-- gets finished games for current user onclick not yet set  -->
-  <% @finished_games = Game.get_user_games_active(@current_user.id) %>
+<% @finished_games = Game.get_user_games_active(@current_user.id) %>
 
-  <div class="list-group">
-    <a href="#" class="list-group-item active">
-      <h4>Completed Games</h4>
-    </a>
-    <% @finished_games.each do |f| %>
-        <a href="#" class="list-group-item"><%= "Player 1: " + f.player1.name + "  Player 2: " + f.player2.name %></a>
-        </div>
-        </body>
-    <% end %>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4>Completed Games</h4>
+  </a>
+  <% @finished_games.each do |f| %>
+      <a href="#" class="list-group-item"><%= "Player 1: " + f.player1.name + "  Player 2: " + f.player2.name %></a>
+  <% end %>
+</div>
+
+
+<!-- Gets a list of all users returns list minus current user  -->
+<% @users = User.all %>
+
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4>All Users</h4>
+  </a>
+  <% @users.each do |u| %>
+      <a href="#" class="list-group-item"><%= "Player name: " + u.name + "  ID: " + u.id.to_s %>
+
+        <button type="button" class="btn btn-primary btn" id="new_game_btn" aria-label="Center Align" onclick="">Play New Game
+        </button>
+      </a>
+  <% end %>
+
+</div>
+</body>
+
+
