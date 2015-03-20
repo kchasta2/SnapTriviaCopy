@@ -100,9 +100,9 @@
 
         $.fn.checking = function(ck) {
             if (ck != $ans)
-                Turbolinks.visit('game');
+                return 'INCORRECT';
             else
-                Turbolinks.visit('game');
+                return 'CORRECT';
         };
     });
 
