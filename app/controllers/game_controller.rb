@@ -1,7 +1,16 @@
 class GameController < ApplicationController
 
   def index
+  end
 
+  def game
+    @player2 = User.find( params[:id] )
+    @game = Game.new(player1_id: @current_user.id, player2_id: @player2.id, player1_turn: true, game_over: false,
+                     art_trophy_p1: false, entertainment_trophy_p1: false, history_trophy_p1: false,
+                     geography_trophy_p1: false, science_trophy_p1: false, sports_trophy_p1: false,
+                     art_trophy_p2: false, entertainment_trophy_p2: false, history_trophy_p2: false,
+                     geography_trophy_p2: false, science_trophy_p2: false, sports_trophy_p2: false);
+    @game.save
   end
 
   # Will show game stats for game
@@ -21,11 +30,7 @@ class GameController < ApplicationController
   end
 
   # Creates new game
-  def new(user_id)
-    @player2 = User.find(user_id)
-    @game = Game.new(game_params)
-    @game.save
-
+  def new
 
   end
 
@@ -36,7 +41,7 @@ class GameController < ApplicationController
   # checks params for new game MUST UPDATE!!!
   private
   def game_params
-     params.require(:game).permit(player1_id: current_user.id, player2_id: @player2)
+     params.require(:game).permit(player1_id: current_user.id, player2_id: @player2.id)
   end
 end
 

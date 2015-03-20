@@ -6,16 +6,9 @@
         background: lightblue;
     }
 
-    #cont-btn {
-        float: right;
-    }
-
-    #new_game_btn {
-        float: right;
-    }
 
     .list-group-item {
-        height: 55px;
+        height: 75px;
         text-align: left;
     }
 
@@ -73,10 +66,14 @@
 
   <% @active_games.each do |a| %>
 
-        <a href="#" class="list-group-item"><%= "Player 1: " + a.player1.name + "  Player 2: " + a.player2.name %>
-          <button type="button" class="btn btn-primary btn" id="cont-btn" aria-label="Center Align">Continue Game
-          </button>
-        </a>
+      <a href="#" class="list-group-item" >
+
+        <%= "Player 1: " + a.player1.name + "  Player 2: " + a.player2.name %>
+
+        <%= link_to game_game_path(:game => a), class: 'btn btn-primary btn', id: 'cont-btn', title: 'Continue Game' do %>
+        Continue Game
+        <% end %>
+      </a>
   <% end %>
 </div>
 
@@ -102,10 +99,13 @@
     <h4>All Users</h4>
   </a>
   <% @users.each do |u| %>
-      <a href="#" class="list-group-item"><%= "Player name: " + u.name + "  ID: " + u.id.to_s %>
+      <a href="#" class="list-group-item">
 
-        <button type="button" class="btn btn-primary btn" id="new_game_btn" aria-label="Center Align" onclick="">Play New Game
-        </button>
+        <%= "Player name: " + u.name + "  ID: " + u.id.to_s %>
+
+        <%= link_to game_game_path(:id => u), class: 'btn btn-primary btn', id: 'cont-btn', title: 'Play New Game' do %>
+            Play New Game
+        <% end %>
       </a>
   <% end %>
 
