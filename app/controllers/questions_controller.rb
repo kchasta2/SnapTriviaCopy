@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   # private check for params
   private
   def question_params
-    params.require(:question).permit( :title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title)
+    params.require(:question).permit( :title, :rightAns, :wrongAns1, :wrongAns2, :wrongAns3, :subject_title, :approved, :difficulty)
   end
 
   def notify_reviewers
