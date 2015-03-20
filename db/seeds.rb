@@ -10,14 +10,24 @@
 Subject.delete_all
 ### Adds Subjects to Subjects table  ###
 Subject.create!([
-                    {subject_title: "Art"},
-                    {subject_title: "Entertainment"},
-                    {subject_title: "History"},
-                    {subject_title: "Geography"},
-                    {subject_title: "Science"},
-                    {subject_title: "Sports"},
-                    {subject_title: "Bonus"},
+                    {subject_title: 'Art'},
+                    {subject_title: 'Entertainment'},
+                    {subject_title: 'History'},
+                    {subject_title: 'Geography'},
+                    {subject_title: 'Science'},
+                    {subject_title: 'Sports'},
+                    {subject_title: 'Bonus'},
                 ])
+
+
+### Deletes all difficulties in the difficulties table ###
+Difficulty.delete_all
+### Adds difficulty rating to table ###
+Difficulty.create!([
+                       { rating: 'easy', rating_value: 1},
+                       { rating: 'medium', rating_value: 2},
+                       { rating: 'hard', rating_value: 3},
+                   ])
 
 ### Creates Users ###
 # Deletes all users in users table
