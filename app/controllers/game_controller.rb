@@ -36,6 +36,10 @@ class GameController < ApplicationController
     @game = Game.find(params[:game_id])
   end
 
+  def question_results
+
+  end
+
   # pops the modal for the question
   def ask_question
     subject_title = params[:subject_title]
