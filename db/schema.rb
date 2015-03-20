@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320202101) do
+ActiveRecord::Schema.define(version: 20150320214744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,11 @@ ActiveRecord::Schema.define(version: 20150320202101) do
     t.integer "science_total_count"
     t.integer "sports_correct_count"
     t.integer "sports_total_count"
+    t.integer "score",                       default: 0
+    t.integer "next_lvl_score",              default: 100
+    t.integer "level",                       default: 1
+    t.integer "total_games",                 default: 0
+    t.integer "total_wins",                  default: 0
   end
 
   create_table "questions", force: :cascade do |t|
