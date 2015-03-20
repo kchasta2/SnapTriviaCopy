@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319210355) do
+ActiveRecord::Schema.define(version: 20150320202101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150319210355) do
     t.boolean  "geography_trophy_p2",     default: false, null: false
     t.boolean  "science_trophy_p2",       default: false, null: false
     t.boolean  "sports_trophy_p2",        default: false, null: false
+    t.integer  "player1_turn_count",      default: 0
+    t.integer  "player2_turn_count",      default: 0
   end
 
   create_table "messages", force: :cascade do |t|
