@@ -14,9 +14,14 @@ class Ability
     if(@user.reviewer)
       can :access, :rails_admin
       can :dashboard
-      can :manage, Question
+      can :index, Question
+      can :new, Question
+      can :destroy, Question
+      can :read, Question
+      can :update, Question
+      cannot :approve_question, :all
+      can :approve_question, Question
+
     end
-
   end
-
 end
