@@ -1,4 +1,6 @@
 RailsAdmin.config do |config|
+  require Rails.root.join('lib', 'rails_admin', 'approve_question.rb')
+  #RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ApproveQuestion)
 
   ### Popular gems integration
 
@@ -25,12 +27,12 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     export
-    bulk_delete
+    #bulk_delete
     show
     edit
-    delete
+    #delete
     show_in_app
-
+    approve_question
     ## With an audit adapter, you can add:
     history_index
     history_show
@@ -42,6 +44,10 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Message' do
+    associated_collection_cache_all = false
+  end
+
+  config.model 'PlayerStat' do
     associated_collection_cache_all = false
   end
 
@@ -68,6 +74,7 @@ RailsAdmin.config do |config|
       field :title do
         label 'Question'
       end
+      field :approved
     end
     edit do
       include_all_fields
