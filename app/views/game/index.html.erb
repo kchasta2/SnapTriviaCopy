@@ -1,11 +1,10 @@
-<% @current_user = current_user %>
+
 
 <body>
 <style type="text/css">
     body {
         background: lightblue;
     }
-
 
     .list-group-item {
         height: 75px;
@@ -44,8 +43,9 @@
     <div class="input-group">
       <p>
         <!-- Button for play random user not linked yet -->
-        <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Play Random User</button>
-
+        <%= link_to game_game_path(:id => 0, :game_id => -1), class: 'btn btn-primary btn-lg', id: 'cont-btn', title: 'Play Random User' do %>
+        Play Random User
+        <% end %>
         <!-- Button for play search for user not linked yet -->
         <button type="button" class="btn btn-primary btn-lg" aria-label="Center Align">Search by player name</button>
       </p>
@@ -56,7 +56,7 @@
 </div>
 
 <!-- gets active games for current user and lists onclick not yet set -->
-<% @active_games = Game.get_user_games_active(@current_user.id) %>
+<% @active_games = Game.get_user_games_active(current_user.id) %>
 
 <div class="list-group">
   <p></p>
@@ -64,13 +64,13 @@
     <h4>Active Games</h4>
   </a>
 
-  <% @active_games.each do |a| %>
+  <% @active_games.each do |game| %>
 
       <a href="#" class="list-group-item" >
 
-        <%= "Player 1: " + a.player1.name + "  Player 2: " + a.player2.name %>
+        <%= "Player 1: " + game.player1.name + "  Player 2: " + game.player2.name %>
 
-        <%= link_to game_game_path(:game => a), class: 'btn btn-primary btn', id: 'cont-btn', title: 'Continue Game' do %>
+        <%= link_to game_game_path(:game_id => game.id), class: 'btn btn-primary btn', id: 'cont-btn', title: 'Continue Game' do %>
         Continue Game
         <% end %>
       </a>
@@ -79,7 +79,7 @@
 
 
 <!-- gets finished games for current user onclick not yet set  -->
-<% @finished_games = Game.get_user_games_active(@current_user.id) %>
+<% @finished_games = Game.get_user_games_active(current_user.id) %>
 
 <div class="list-group">
   <a href="#" class="list-group-item active">
@@ -98,12 +98,12 @@
   <a href="#" class="list-group-item active">
     <h4>All Users</h4>
   </a>
-  <% @users.each do |u| %>
+  <% @users.each do |player2| %>
       <a href="#" class="list-group-item">
 
-        <%= "Player name: " + u.name + "  ID: " + u.id.to_s %>
+        <%= "Player name: " + player2.name + "  ID: " + player2.id.to_s %>
 
-        <%= link_to game_game_path(:id => u), class: 'btn btn-primary btn', id: 'cont-btn', title: 'Play New Game' do %>
+        <%= link_to game_game_path(:player2_id => player2.id, :game_id => 0), class: 'btn btn-primary btn', id: 'cont-btn', title: 'Play New Game' do %>
             Play New Game
         <% end %>
       </a>

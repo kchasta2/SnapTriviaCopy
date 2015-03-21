@@ -1,3 +1,7 @@
+<% current_game = @game %>
+<% player2 = User.find(current_game.player2_id) %>
+<% player1 = current_user %>
+<% %>
 
 <html>
 <head>
@@ -6,12 +10,14 @@
       <div class="col-xs-12">
         <ul class="nav nav-pills nav-justified thumbnail">
           <li class="active"><a href="#">
-            <h4 class="list-group-item-heading"><%=  current_user.name   %></h4>
-            <p class="list-group-item-text">This is where trophies go!</p>
+            <!--  Image should go here  -->
+            <h4 class="list-group-item-heading"><%=  player1.name   %></h4>
+            <p class="list-group-item-text">Turn count = <%= current_game.player1_turn_count.to_s %></p>
           </a></li>
           <li class="disabled"><a href="#">
-            <h4 class="list-group-item-heading"><%= @game.player2.name %>></h4>
-            <p class="list-group-item-text">This is where trophies go!</p>
+            <!--  Image should go here  -->
+            <h4 class="list-group-item-heading"><%= player2.name %></h4>
+            <p class="list-group-item-text">Turn count = <%= current_game.player2_turn_count.to_s %></p>
           </a></li>
         </ul>
       </div>
