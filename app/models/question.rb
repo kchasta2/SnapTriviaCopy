@@ -3,6 +3,7 @@ class Question < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :subject
   accepts_nested_attributes_for :subject
+  belongs_to :user
 
   validates :title, presence: true
   validates :rightAns, presence: true
