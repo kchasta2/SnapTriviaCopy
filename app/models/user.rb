@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def user_messages
+    @user_messages = Message.where(recipient_id: id).to_a
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

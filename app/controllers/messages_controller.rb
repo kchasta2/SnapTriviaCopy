@@ -31,6 +31,7 @@ class MessagesController < ApplicationController
     @message.sender_id = current_user.id
     @message.sender_name = current_user.name
     @message.recipient_name = User.find(@message.recipient_id).name
+    @message.read = 0
     @message.save
     respond_to do |format|
       if @message.save
