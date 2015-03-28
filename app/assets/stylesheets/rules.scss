@@ -7,8 +7,20 @@ body {
 
 h1 {
   color: blue;
+  background-color: #b9def0;
 }
 
 h3 {
-  color: darkgreen;
+  color: white;
+  background-color: #2b669a;
+  padding: 5px;
+}
+
+aside {
+  font-size: 20px;
+}
+
+.list-group-item {
+  height: 75px;
+  text-align: left;
 }

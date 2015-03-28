@@ -8,7 +8,7 @@ Snaptrivia::Application.routes.draw do
   get 'questions/show' => 'questions#show'
   get 'game/ask_question'
   get 'game/show'
-  get 'game/index'
+  get 'game/index' => 'game#index'
 
   get 'game/game' => 'game#game'
 
@@ -27,7 +27,7 @@ Snaptrivia::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'game#welcome'
+   root 'game#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
