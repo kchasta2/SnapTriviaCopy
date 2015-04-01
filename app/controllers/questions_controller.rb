@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def notify_reviewers
     User.where(reviewer: true).find_each do |user|
-      message = Message.create( {:sender_id => 0, :subject => 'New Question', :body => @question.id, :sender_name => 'system', :recipient_name => user.name, :recipient_id => user.id } )
+      message = Message.create( { :sender_id => 0, :payload => @question.id, :subject => 'New Question', :body => @question.title, :sender_name => 'system', :recipient_name => user.name, :recipient_id => user.id } )
       message.save
     end
     flash[:notice] = 'Reviewers have been notified. Your question is pending'

@@ -51,23 +51,11 @@ RailsAdmin.config do |config|
     associated_collection_cache_all = false
   end
 
-  config.model 'User' do
-    list do
-      field :id
-      field :name
-      field :email
-      field :admin
-      field :reviewer
-      field :provider
-    end
-    edit do
-      exclude_fields :password, :password_confirmation
-    end
-  end
-
   config.model 'Question' do
+    associated_collection_cache_all = false
     list do
       field :id
+      field :user_id
       field :subject_title do
         label 'Category'
       end
@@ -78,12 +66,33 @@ RailsAdmin.config do |config|
     end
     edit do
       include_all_fields
+      #exclude_fields :user_id
+      field :user_id do
+        visible do
+          hide
+        end
+      end
       field :subject_title do
         label 'Category'
       end
       field :title do
         label 'Question'
       end
+    end
+  end
+
+  config.model 'User' do
+    associated_collection_cache_all = false
+    list do
+      field :id
+      field :name
+      field :email
+      field :admin
+      field :reviewer
+      field :provider
+    end
+    edit do
+      exclude_fields :password, :password_confirmation
     end
   end
 

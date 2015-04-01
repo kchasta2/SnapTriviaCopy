@@ -22,12 +22,10 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             @object.update_attribute(:approved, true)
-            flash[:notice] = "You have approved the question titled: #{@object.title}."
-            User.where(admin: true).find_each do |user|
-              message = Message.create( {:sender_id => 0, :subject => 'Question Approved', :body => 'Question: ' + @object.id.to_s, :sender_name => 'system', :recipient_name => user.name, :recipient_id => user.id } )
-              message.save
-            end
-            flash[:notice] = 'Add user_id to Question. Msg sent to Admin'
+            user = User.find(@object.user_id)
+            message = Message.create( {:sender_id => 0, :payload => @object.id, :subject => 'Question Approved', :body => 'Question: ' + @object.title, :sender_name => 'System Message', :recipient_name => user.name, :recipient_id => user.id } )
+            message.save
+            flash[:notice] = 'User notified of question approval'
             redirect_to back_or_index
           end
         end

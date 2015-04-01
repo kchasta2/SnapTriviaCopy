@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :player_stats, :presence => false
   has_many :messages
   validates :messages, :presence => false
+  has_many :questions
+  validates :questions, :presence => false
   #has_paper_trail :only => [:request_reviewer]
 
   # Set default values not handled in previous migrations
@@ -47,6 +49,10 @@ class User < ActiveRecord::Base
       )
     end
     user
+  end
+
+  def user_messages
+    @user_messages = Message.where(recipient_id: id).to_a
   end
 
   # Include default devise modules. Others available are:
