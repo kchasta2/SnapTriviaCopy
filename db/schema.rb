@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150320223041) do
+=======
+ActiveRecord::Schema.define(version: 20150321224659) do
+>>>>>>> f5a291bf0734eaf2bc419486ba7dc06789ab527b
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150320223041) do
     t.datetime "updated_at"
     t.string   "sender_name"
     t.string   "recipient_name"
+    t.string   "payload"
   end
 
   create_table "player_stats", force: :cascade do |t|
@@ -108,7 +113,10 @@ ActiveRecord::Schema.define(version: 20150320223041) do
     t.string   "subject_title"
     t.boolean  "approved",      default: false, null: false
     t.integer  "difficulty"
+    t.integer  "user_id"
   end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "reviewers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
